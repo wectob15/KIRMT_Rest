@@ -16,7 +16,7 @@ public class AdminController {
     private AdminRepository adminRepository;
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public List<Admin> getAllAdmins(){
+    public List<Admin> getAllAdmins() {
         return adminRepository.findAll();
     }
 }
