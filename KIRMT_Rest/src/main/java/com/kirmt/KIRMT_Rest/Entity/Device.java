@@ -1,6 +1,8 @@
 package com.kirmt.KIRMT_Rest.Entity;
 
 
+import com.kirmt.KIRMT_Rest.Converter.LocalDateConverter;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -12,9 +14,26 @@ public class Device {
     private int inventar_nr;
     private String beschreibung;
     private String category;
+    private String status;
+    private String brand;
+    private String model;
     private double price;
+    @Convert(converter = LocalDateConverter.class)
     private LocalDate acquisitionDate;
-    private LocalDate serviceDate;
+
+
+
+    public Device() {
+    }
+
+    public Device(String beschreibung, String category, String status, String brand, double price, LocalDate acquisitionDate) {
+        this.beschreibung = beschreibung;
+        this.category = category;
+        this.status = status;
+        this.brand = brand;
+        this.price = price;
+        this.acquisitionDate = acquisitionDate;
+    }
 
     public int getInventar_nr() {
         return inventar_nr;
@@ -56,11 +75,27 @@ public class Device {
         this.acquisitionDate = acquisitionDate;
     }
 
-    public LocalDate getServiceDate() {
-        return serviceDate;
+    public String getStatus() {
+        return status;
     }
 
-    public void setServiceDate(LocalDate serviceDate) {
-        this.serviceDate = serviceDate;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 }
