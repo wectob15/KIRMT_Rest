@@ -5,29 +5,32 @@ import com.kirmt.KIRMT_Rest.Converter.LocalDateConverter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "device")
 public class Device {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int inventar_nr;
-    private String beschreibung;
+    private long inventar_nr;
+    private String description;
     private String category;
     private String status;
     private String brand;
     private String model;
     private double price;
+
     @Convert(converter = LocalDateConverter.class)
     private LocalDate acquisitionDate;
 
-
+    @OneToMany(mappedBy = "device")
+    private List<Deviceservice> services;
 
     public Device() {
     }
 
-    public Device(String beschreibung, String category, String status, String brand, double price, LocalDate acquisitionDate) {
-        this.beschreibung = beschreibung;
+    public Device(String description, String category, String status, String brand, double price, LocalDate acquisitionDate) {
+        this.description = description;
         this.category = category;
         this.status = status;
         this.brand = brand;
@@ -35,20 +38,20 @@ public class Device {
         this.acquisitionDate = acquisitionDate;
     }
 
-    public int getInventar_nr() {
+    public long getInventar_nr() {
         return inventar_nr;
     }
 
-    public void setInventar_nr(int inventar_nr) {
+    public void setInventar_nr(long inventar_nr) {
         this.inventar_nr = inventar_nr;
     }
 
-    public String getBeschreibung() {
-        return beschreibung;
+    public String getDescription() {
+        return description;
     }
 
-    public void setBeschreibung(String beschreibung) {
-        this.beschreibung = beschreibung;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getCategory() {
