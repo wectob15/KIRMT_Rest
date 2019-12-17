@@ -1,5 +1,9 @@
 package com.kirmt.KIRMT_Rest.Controller;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.kirmt.KIRMT_Rest.Entity.Admin;
 import com.kirmt.KIRMT_Rest.Entity.Device;
 import com.kirmt.KIRMT_Rest.Repository.DeviceRepository;
@@ -11,6 +15,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@JsonDeserialize(using = LocalDateDeserializer.class)
+@JsonSerialize(using = LocalDateSerializer.class)
 public class DeviceController {
 
     @Autowired
