@@ -23,9 +23,6 @@ public class Device {
     @Convert(converter = LocalDateConverter.class)
     private LocalDate acquisitionDate;
 
-    @OneToMany(mappedBy = "device")
-    private List<Deviceservice> services;
-
     public Device() {
     }
 

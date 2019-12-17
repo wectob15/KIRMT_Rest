@@ -15,8 +15,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@JsonDeserialize(using = LocalDateDeserializer.class)
-@JsonSerialize(using = LocalDateSerializer.class)
 public class DeviceController {
 
     @Autowired
@@ -37,7 +35,7 @@ public class DeviceController {
         return deviceRepository.findById(user_id);
     }
 
-    @RequestMapping(value = "device/delete/{device_id}", method = RequestMethod.GET)
+    @RequestMapping(value = "device/delete/{device_id}", method = RequestMethod.DELETE)
     public void deleteDevice(@PathVariable int device_id){
         deviceRepository.deleteById(device_id);
     }

@@ -12,9 +12,4 @@ public class Deviceservice {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Convert(converter = LocalDateConverter.class)
     private LocalDate serviceDate;
-
-    @ManyToOne
-    @JoinColumn(name = "device", nullable = false)
-    private Device device;
-
 }
