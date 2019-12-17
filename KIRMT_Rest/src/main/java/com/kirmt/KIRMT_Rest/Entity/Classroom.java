@@ -11,6 +11,13 @@ public class Classroom {
     private String classname;
     private String floor;
 
+    public Classroom() {
+    }
+
+    public Classroom(String classname, String floor) {
+        this.classname = classname;
+        this.floor = floor;
+    }
 
     public String getClassname() {
         return classname;
