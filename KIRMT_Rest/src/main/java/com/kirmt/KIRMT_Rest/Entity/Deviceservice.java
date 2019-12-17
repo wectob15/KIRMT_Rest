@@ -12,4 +12,24 @@ public class Deviceservice {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Convert(converter = LocalDateConverter.class)
     private LocalDate serviceDate;
+
+    @ManyToOne
+    @JoinColumn(name = "device_id")
+    private Device device;
+
+    public LocalDate getServiceDate() {
+        return serviceDate;
+    }
+
+    public void setServiceDate(LocalDate serviceDate) {
+        this.serviceDate = serviceDate;
+    }
+
+    public Device getDevice() {
+        return device;
+    }
+
+    public void setDevice(Device device) {
+        this.device = device;
+    }
 }

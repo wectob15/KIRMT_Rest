@@ -5,6 +5,7 @@ import com.kirmt.KIRMT_Rest.Converter.LocalDateConverter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,7 +24,18 @@ public class Device {
     @Convert(converter = LocalDateConverter.class)
     private LocalDate acquisitionDate;
 
+    @OneToMany(mappedBy = "device")
+    private List<Deviceservice> services = new ArrayList<>();
+
     public Device() {
+    }
+
+    public List<Deviceservice> getServices() {
+        return services;
+    }
+
+    public void setServices(List<Deviceservice> services) {
+        this.services = services;
     }
 
     public Device(String description, String category, String status, String brand, double price, LocalDate acquisitionDate) {
