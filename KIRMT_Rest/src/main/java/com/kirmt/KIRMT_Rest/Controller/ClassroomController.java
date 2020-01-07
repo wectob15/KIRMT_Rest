@@ -20,12 +20,12 @@ public class ClassroomController {
     }
 
     @RequestMapping(value = "/classrooms/add", method = RequestMethod.POST)
-    public void addUser(@Valid @RequestBody Classroom classroom){
+    public void addClassroom(@Valid @RequestBody Classroom classroom){
         classroomRepository.save(classroom);
     }
 
     @RequestMapping(value = "/classrooms/{user_id}", method = RequestMethod.GET)
-    public Optional<Classroom> getUserById(@PathVariable int user_id){
+    public Optional<Classroom> getClassroomById(@PathVariable int user_id){
         return classroomRepository.findById(user_id);
     }
 }
