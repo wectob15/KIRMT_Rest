@@ -4,36 +4,21 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "classresponsible")
-public class ClassResponsible implements Serializable {
-    @Id
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-    private String firstname;
-    private String lastname;
+public class ClassResponsible extends User {
+    private String classname;
 
     public ClassResponsible() {
     }
 
-    public ClassResponsible(String firstname, String lastname) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+    public ClassResponsible(String username, String password, String email) {
+        super(username, password, email);
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getClassname() {
+        return classname;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setClassname(String classname) {
+        this.classname = classname;
     }
 }
