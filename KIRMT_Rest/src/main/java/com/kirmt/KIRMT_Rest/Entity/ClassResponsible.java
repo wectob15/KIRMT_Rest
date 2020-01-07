@@ -10,7 +10,9 @@ public class ClassResponsible {
     private int cr_id;
     private String firstname;
     private String lastname;
-    private String email;
+
+    @JoinColumn(name = "classroom_id")
+    private Classroom classroom;
 
     public ClassResponsible() {
     }
@@ -44,11 +46,11 @@ public class ClassResponsible {
         this.lastname = lastname;
     }
 
-    public String getEmail() {
-        return email;
+    public Classroom getClassroom() {
+        return classroom;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setClassroom(Classroom classroom) {
+        this.classroom = classroom;
     }
 }

@@ -48,3 +48,9 @@ values (2, 'wectoa15@htlkaindorf.at', '*****', 'wectoa15');
 
 insert into dbuser (user_id, email, password, username)
 values (1, 'maualb15@htlkaindorf.at', '*****', 'maualb15');
+
+-- classresponsible
+select * from classresponsible;
+
+insert into classresponsible (cr_id, firstname, lastname)
+values (1, 'Alex', 'Mauko');
