@@ -3,7 +3,6 @@ package com.kirmt.KIRMT_Rest.Controller;
 import com.kirmt.KIRMT_Rest.Entity.Admin;
 import com.kirmt.KIRMT_Rest.Entity.User;
 import com.kirmt.KIRMT_Rest.Repository.AdminRepository;
-import com.kirmt.KIRMT_Rest.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +16,7 @@ import java.util.List;
 public class AdminController {
     @Autowired
     private AdminRepository adminRepository;
-    private UserRepository userRepository;
+
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public List<Admin> getAllAdmins() {
         return adminRepository.findAll();

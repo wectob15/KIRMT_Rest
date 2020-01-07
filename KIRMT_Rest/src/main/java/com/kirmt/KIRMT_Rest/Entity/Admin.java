@@ -1,30 +1,21 @@
 package com.kirmt.KIRMT_Rest.Entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
-@Table(name = "admin")
-public class Admin {
-    @Id
-    @OneToOne
-    private User admin_id;
+public class Admin extends User {
     private String firstname;
     private String lastname;
 
     public Admin() {
     }
 
-    public Admin(String firstname, String lastname) {
-        this.firstname = firstname;
+    public Admin(String firstname, String lastname, String email, String username, String password){
+        super(username, password, email);
         this.lastname = lastname;
-    }
-
-    public User getUser_id() {
-        return admin_id;
-    }
-
-    public void setUser_id(User admin_id) {
-        this.admin_id = admin_id;
+        this.firstname = firstname;
     }
 
     public String getFirstname() {
@@ -42,5 +33,4 @@ public class Admin {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
-
 }
