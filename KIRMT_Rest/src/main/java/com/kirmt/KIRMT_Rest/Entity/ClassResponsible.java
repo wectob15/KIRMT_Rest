@@ -11,9 +11,6 @@ public class ClassResponsible {
     private String firstname;
     private String lastname;
 
-    @JoinColumn(name = "classroom_id")
-    private Classroom classroom;
-
     public ClassResponsible() {
     }
 
@@ -44,13 +41,5 @@ public class ClassResponsible {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-
-    public Classroom getClassroom() {
-        return classroom;
-    }
-
-    public void setClassroom(Classroom classroom) {
-        this.classroom = classroom;
     }
 }
