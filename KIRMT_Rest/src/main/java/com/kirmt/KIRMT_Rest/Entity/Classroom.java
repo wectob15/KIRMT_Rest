@@ -11,6 +11,9 @@ public class Classroom {
     private String classname;
     private String floor;
 
+    @OneToOne
+    private ClassResponsible classresponsible;
+
     public Classroom() {
     }
 
