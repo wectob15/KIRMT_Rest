@@ -2,24 +2,38 @@ package com.kirmt.KIRMT_Rest.Entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
-public class ClassResponsible extends User {
-    private String classname;
+@Table(name = "classresponsible")
+public class ClassResponsible implements Serializable {
+    @Id
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    private String firstname;
+    private String lastname;
 
     public ClassResponsible() {
     }
 
-    public String getClassname() {
-        return classname;
+    public ClassResponsible(String firstname, String lastname) {
+        this.firstname = firstname;
+        this.lastname = lastname;
     }
 
-    public void setClassname(String classname) {
-        this.classname = classname;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public ClassResponsible(String username, String password, String email) {
-        super(username, password, email);
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 }
