@@ -1,13 +1,15 @@
 package com.kirmt.KIRMT_Rest.Entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "classresponsible")
-public class ClassResponsible {
+public class ClassResponsible implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int cr_id;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     private String firstname;
     private String lastname;
 
@@ -17,14 +19,6 @@ public class ClassResponsible {
     public ClassResponsible(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
-    }
-
-    public int getCr_id() {
-        return cr_id;
-    }
-
-    public void setCr_id(int cr_id) {
-        this.cr_id = cr_id;
     }
 
     public String getFirstname() {
