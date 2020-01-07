@@ -31,8 +31,8 @@ values (1, '1.1.17', 2);
 -- admin
 select * from admin;
 
-insert into admin (admin_id, email, firstname, lastname)
-values (1, 'kw@htlkaindorf.at', 'Christoph', 'Kohlweg');
+insert into admin (admin_id, firstname, lastname)
+values (1, 'Christoph', 'Kohlweg');
 
 -- user
 select * from dbuser;
