@@ -54,3 +54,20 @@ select * from classresponsible;
 
 insert into classresponsible (cr_id, firstname, lastname)
 values (1, 'Alex', 'Mauko');
+
+--statements
+
+-- man kann sich als admin/user anmelden
+-- ? wird mit preparedStatement mit username vom benutzer ersetzt
+select  password
+from    dbuser
+where   username=?;
+
+-- Der Admin möchte zu jedem Gerät Informationen zu der History sehen
+select  acquisition_date
+from    device
+where   category = ?
+-- alle services und was gemacht wurde
+select  service_date, description
+from    device_service
+where   inventar_nr = ?;

@@ -14,7 +14,7 @@ public class Deviceservice {
     private LocalDate serviceDate;
 
     @ManyToOne
-    @JoinColumn(name = "device_id")
+    @JoinColumn(name = "inventar_nr")
     private Device device;
 
     public LocalDate getServiceDate() {
