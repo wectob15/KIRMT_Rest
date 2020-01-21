@@ -24,6 +24,10 @@ public class Device {
     @Convert(converter = LocalDateConverter.class)
     private LocalDate acquisitionDate;
 
+    @ManyToOne
+    @JoinColumn(name = "classroom_id")
+    private Classroom classroom;
+
     @OneToMany(mappedBy = "device")
     private List<Deviceservice> services = new ArrayList<>();
 

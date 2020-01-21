@@ -1,6 +1,7 @@
 package com.kirmt.KIRMT_Rest.Entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "classroom")
@@ -10,6 +11,9 @@ public class Classroom {
     private int classroom_id;
     private String classname;
     private String floor;
+
+    @OneToMany(mappedBy = "classroom")
+    private Set<Device> devices;
 
     @OneToOne
     private ClassResponsible classresponsible;
@@ -21,6 +25,7 @@ public class Classroom {
         this.classname = classname;
         this.floor = floor;
     }
+
 
     public String getClassname() {
         return classname;

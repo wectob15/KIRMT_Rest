@@ -24,9 +24,9 @@ public class ClassroomController {
         classroomRepository.save(classroom);
     }
 
-    @RequestMapping(value = "/classrooms/{user_id}", method = RequestMethod.GET)
-    public Optional<Classroom> getClassroomById(@PathVariable int user_id){
-        return classroomRepository.findById(user_id);
+    @RequestMapping(value = "/classrooms/{classroom_id}", method = RequestMethod.GET)
+    public Optional<Classroom> getClassroomById(@PathVariable int classroom_id){
+        return classroomRepository.findById(classroom_id);
     }
 }
 
