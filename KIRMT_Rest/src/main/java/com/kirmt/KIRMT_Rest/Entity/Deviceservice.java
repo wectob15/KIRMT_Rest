@@ -12,6 +12,7 @@ public class Deviceservice {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Convert(converter = LocalDateConverter.class)
     private LocalDate serviceDate;
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "inventar_nr")
@@ -31,5 +32,13 @@ public class Deviceservice {
 
     public void setDevice(Device device) {
         this.device = device;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
