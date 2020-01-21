@@ -67,7 +67,13 @@ where   username=?;
 select  acquisition_date
 from    device
 where   category = ?
+
 -- alle services und was gemacht wurde
 select  service_date, description
 from    device_service
 where   inventar_nr = ?;
+
+select  isadmin
+from    user
+where   email = ?;
+
