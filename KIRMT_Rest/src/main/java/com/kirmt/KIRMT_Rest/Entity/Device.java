@@ -31,6 +31,10 @@ public class Device {
     @OneToMany(mappedBy = "device")
     private List<Deviceservice> services = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     public Device() {
     }
 
@@ -113,5 +117,17 @@ public class Device {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public Classroom getClassroom() {
+        return classroom;
+    }
+
+    public void setClassroom(Classroom classroom) {
+        this.classroom = classroom;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
