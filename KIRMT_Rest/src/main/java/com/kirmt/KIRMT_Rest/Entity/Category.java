@@ -14,6 +14,10 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private List<Device> devices = new ArrayList();
 
+    public Category(String categoryname) {
+        this.categoryname = categoryname;
+    }
+
     public int getCategory_id() {
         return category_id;
     }

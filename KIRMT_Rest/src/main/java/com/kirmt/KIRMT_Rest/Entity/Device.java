@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Entity
 @Table(name = "device")
@@ -15,7 +16,6 @@ public class Device {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long inventar_nr;
     private String description;
-    private String category;
     private String status;
     private String brand;
     private String model;
@@ -46,9 +46,8 @@ public class Device {
         this.services = services;
     }
 
-    public Device(String description, String category, String status, String brand, double price, LocalDate acquisitionDate) {
+    public Device(String description, String status, String brand, double price, LocalDate acquisitionDate) {
         this.description = description;
-        this.category = category;
         this.status = status;
         this.brand = brand;
         this.price = price;
@@ -69,14 +68,6 @@ public class Device {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public double getPrice() {
@@ -125,6 +116,10 @@ public class Device {
 
     public void setClassroom(Classroom classroom) {
         this.classroom = classroom;
+    }
+
+    public Category getCategory() {
+        return category;
     }
 
     public void setCategory(Category category) {
