@@ -1,7 +1,9 @@
 package com.kirmt.KIRMT_Rest.Controller;
 
 import com.kirmt.KIRMT_Rest.Entity.Classroom;
+import com.kirmt.KIRMT_Rest.Entity.User;
 import com.kirmt.KIRMT_Rest.Repository.ClassroomRepository;
+import com.kirmt.KIRMT_Rest.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +15,8 @@ import java.util.Optional;
 public class ClassroomController {
     @Autowired
     private ClassroomRepository classroomRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @RequestMapping(value = "/classrooms", method = RequestMethod.GET)
     public List<Classroom> getAllClassrooms(){
@@ -21,6 +25,8 @@ public class ClassroomController {
 
     @RequestMapping(value = "/classrooms/add", method = RequestMethod.POST)
     public void addClassroom(@Valid @RequestBody Classroom classroom){
+        User user = userRepository.getOne(classroom.getUser_id());
+        classroom.setUser(user);
         classroomRepository.save(classroom);
     }
 

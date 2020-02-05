@@ -7,15 +7,13 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@DiscriminatorValue("Admin")
-public class Admin extends User {
-    private String firstname;
-    private String lastname;
+@DiscriminatorValue("Responsible")
+public class Responsible extends User {
+    private String classname;
 }

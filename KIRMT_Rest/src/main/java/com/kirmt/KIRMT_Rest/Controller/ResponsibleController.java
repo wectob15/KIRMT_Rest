@@ -1,7 +1,7 @@
 package com.kirmt.KIRMT_Rest.Controller;
 
-import com.kirmt.KIRMT_Rest.Entity.ClassResponsible;
-import com.kirmt.KIRMT_Rest.Repository.ClassResponsibleRepository;
+import com.kirmt.KIRMT_Rest.Entity.Responsible;
+import com.kirmt.KIRMT_Rest.Repository.ResponsibleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,16 +12,17 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-public class ClassResponsibleController {
+public class ResponsibleController {
     @Autowired
-    private ClassResponsibleRepository classResponsibleRepository;
+    private ResponsibleRepository classResponsibleRepository;
 
     @RequestMapping(value = "/classresponsible", method = RequestMethod.GET)
-    public List<ClassResponsible> getAllAdmins() {
+    public List<Responsible> getAllResponsibles() {
         return classResponsibleRepository.findAll();
     }
+
     @RequestMapping(value = "/classresponsible/add", method = RequestMethod.POST)
-    public void addAdmin(@Valid @RequestBody ClassResponsible classResponsible){
+    public void addResponsible(@Valid @RequestBody Responsible classResponsible){
         classResponsibleRepository.save(classResponsible);
     }
 }

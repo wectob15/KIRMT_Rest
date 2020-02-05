@@ -5,7 +5,9 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.kirmt.KIRMT_Rest.Entity.Admin;
+import com.kirmt.KIRMT_Rest.Entity.Classroom;
 import com.kirmt.KIRMT_Rest.Entity.Device;
+import com.kirmt.KIRMT_Rest.Repository.ClassroomRepository;
 import com.kirmt.KIRMT_Rest.Repository.DeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +21,8 @@ public class DeviceController {
 
     @Autowired
     private DeviceRepository deviceRepository;
+    @Autowired
+    private ClassroomRepository classroomRepository;
 
     @RequestMapping(value = "/device", method = RequestMethod.GET)
     public List<Device> getAllDevices(){
@@ -27,6 +31,8 @@ public class DeviceController {
 
     @RequestMapping(value = "/device/add", method = RequestMethod.POST)
     public void addDevice(@RequestBody @Valid Device device){
+        Classroom classroom = classroomRepository.getOne(device.getClassroom_id());
+        device.setClassroom(classroom);
         deviceRepository.save(device);
     }
 
