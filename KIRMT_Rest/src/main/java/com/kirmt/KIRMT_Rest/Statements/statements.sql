@@ -1,16 +1,16 @@
 -- device
 select * from device;
 
-insert into device (inventar_nr, acquisition_date, beschreibung, brand, category, model, price, status)
+insert into device (inventar_nr, acquisition_date, description, brand, category, model, price, status)
 values (4, to_date('01.02.2020', 'DD.mm.yyyy'), 'Monitor', 'Samsung', 'PC-Accecories', 'LED', 400.99, 'OK');
 
-insert into device (inventar_nr, acquisition_date, beschreibung, brand, category, model, price, status)
+insert into device (inventar_nr, acquisition_date, description, brand, category, model, price, status)
 values (3, to_date('20.11.2000', 'DD.mm.yyyy'), 'Tastatur', 'Logitec', 'PC_Accecories', 'M2', 40.99, 'down');
 
-insert into device (inventar_nr, acquisition_date, beschreibung, brand, category, model, price, status)
+insert into device (inventar_nr, acquisition_date, description, brand, category, model, price, status)
 values (2, to_date('20.11.2000', 'DD.mm.yyyy'), 'PC', 'Acer', 'PC', 'AG6', 1500.99, 'OK');
 
-insert into device (inventar_nr, acquisition_date, beschreibung, brand, category, model, price, status)
+insert into device (inventar_nr, acquisition_date, description, brand, category, model, price, status)
 values (1, to_date('20.11.2000', 'DD.mm.yyyy'), 'Drucker', 'Canon', 'Drucker', 'MX5490', 150.99, 'OK');
 
 -- classroom
@@ -31,8 +31,8 @@ values (1, '1.1.17', 2);
 -- admin
 select * from admin;
 
-insert into admin (admin_id, firstname, lastname)
-values (1, 'Christoph', 'Kohlweg');
+insert into admin (firstname, lastname)
+values ('Christoph', 'Kohlweg');
 
 -- user
 select * from dbuser;
@@ -52,8 +52,8 @@ values (1, 'maualb15@htlkaindorf.at', '*****', 'maualb15');
 -- classresponsible
 select * from classresponsible;
 
-insert into classresponsible (cr_id, firstname, lastname)
-values (1, 'Alex', 'Mauko');
+insert into classresponsible(user_id, )
+values (1, '1.7.2');
 
 --statements
 
@@ -61,7 +61,7 @@ values (1, 'Alex', 'Mauko');
 -- ? wird mit preparedStatement mit username vom benutzer ersetzt
 select  password
 from    dbuser
-where   username=?;
+where   username = ?;
 
 -- Der Admin möchte zu jedem Gerät Informationen zu der History sehen
 select  acquisition_date
