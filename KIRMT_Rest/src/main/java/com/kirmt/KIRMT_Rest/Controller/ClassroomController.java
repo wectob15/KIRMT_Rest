@@ -30,6 +30,12 @@ public class ClassroomController {
         classroomRepository.save(classroom);
     }
 
+    @RequestMapping(value = "/classrooms/getClass/{classname}", method = RequestMethod.GET)
+    @CrossOrigin(origins = "*")
+    public Classroom getClassroomIdByName(@PathVariable String classname){
+        return classroomRepository.findClassroomByClassname(classname);
+    }
+
     @RequestMapping(value = "/classrooms/{classroom_id}", method = RequestMethod.GET)
     public Optional<Classroom> getClassroomById(@PathVariable int classroom_id){
         return classroomRepository.findById(classroom_id);

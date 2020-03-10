@@ -1,24 +1,24 @@
 package com.kirmt.KIRMT_Rest.Controller;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Optional;
 
+import javax.print.attribute.standard.Media;
 import javax.validation.Valid;
 
 import com.kirmt.KIRMT_Rest.Entity.User;
 import com.kirmt.KIRMT_Rest.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "/users")
 public class UserController {
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public List<User> getUser(){
 		return userRepository.findAll();
@@ -42,9 +42,10 @@ public class UserController {
 		userRepository.save(user);
 	}
 	
-	@RequestMapping(value = "/users/{user_id}", method = RequestMethod.GET)
-	public Optional<User> getUser(@PathVariable int user_id) {
-
-		return userRepository.findById(user_id);
+	@RequestMapping(value = "/users/{email}", method = RequestMethod.GET)
+	@CrossOrigin(origins = "*")
+	public User getUser(@PathVariable String email) {
+		User user = userRepository.findUserByStatusAndNameNamedParams(email);
+		return user;
 	}
 }

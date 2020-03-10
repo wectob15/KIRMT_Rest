@@ -10,9 +10,11 @@ import com.kirmt.KIRMT_Rest.Entity.Device;
 import com.kirmt.KIRMT_Rest.Repository.ClassroomRepository;
 import com.kirmt.KIRMT_Rest.Repository.DeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.awt.*;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,15 +27,18 @@ public class DeviceController {
     private ClassroomRepository classroomRepository;
 
     @RequestMapping(value = "/device", method = RequestMethod.GET)
+    @CrossOrigin(origins = "*")
     public List<Device> getAllDevices(){
         return deviceRepository.findAll();
     }
 
-    @RequestMapping(value = "/device/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/device/add", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "*")
     public void addDevice(@RequestBody @Valid Device device){
-        Classroom classroom = classroomRepository.getOne(device.getClassroom_id());
-        device.setClassroom(classroom);
-        deviceRepository.save(device);
+        System.out.println("hier");
+        //Classroom classroom = classroomRepository.getOne(device.getClassroom_id());
+        //device.setClassroom(classroom);
+        //deviceRepository.save(device);
     }
 
     @RequestMapping(value = "/device/{device_id}", method = RequestMethod.GET)

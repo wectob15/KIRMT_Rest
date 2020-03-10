@@ -21,7 +21,7 @@ public class AdminController {
     public List<Admin> getAllAdmins() {
         return adminRepository.findAll();
     }
-    @RequestMapping(value = "/admin/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/add",method = RequestMethod.POST)
     public void addAdmin(@Valid @RequestBody Admin admin){
         adminRepository.save(admin);
     }

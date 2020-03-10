@@ -2,25 +2,19 @@ package com.kirmt.KIRMT_Rest.Entity;
 
 
 import com.kirmt.KIRMT_Rest.Converter.LocalDateConverter;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 @Table(name = "device")
-public class Device {
+public class Device implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long inventar_nr;
     private String description;
     private String category;

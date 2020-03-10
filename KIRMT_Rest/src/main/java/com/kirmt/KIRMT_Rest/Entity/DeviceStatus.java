@@ -17,7 +17,7 @@ public class DeviceStatus implements Serializable {
     @JoinColumn(name = "device_id")
     private Device device;
 
-    private boolean fixed;
+    private String progress;
 
     private String description;
 }

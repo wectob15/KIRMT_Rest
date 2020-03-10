@@ -1,19 +1,14 @@
 package com.kirmt.KIRMT_Rest.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
+@Data
 @Table(name = "classroom")
 public class Classroom implements Serializable {
     @Id
@@ -28,4 +23,5 @@ public class Classroom implements Serializable {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
+
 }

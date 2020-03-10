@@ -2,20 +2,16 @@ package com.kirmt.KIRMT_Rest.Entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Data
-public class Status {
+public class Status implements Serializable {
     @Id
     @GeneratedValue
     private int statusid;
     private String statusname;
 
-    @OneToMany(mappedBy = "status")
-    private List<DeviceStatus> deviceStatusList;
 }

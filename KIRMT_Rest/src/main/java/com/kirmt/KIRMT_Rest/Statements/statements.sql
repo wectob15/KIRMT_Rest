@@ -1,4 +1,6 @@
 -- device
+
+
 select * from device;
 
 insert into device (inventar_nr, acquisition_date, description, brand, category, model, price, status)
@@ -72,8 +74,11 @@ where   category = ?
 select  service_date, description
 from    device_service
 where   inventar_nr = ?;
+<<<<<<< Updated upstream
 
 select  isadmin
 from    user
 where   email = ?;
 
+=======
+>>>>>>> Stashed changes
